@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "api-rest-cocktail": {
+    "cocktail-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/api-rest-cocktail",
+            "outputPath": "dist/cocktail-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,11 +54,6 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
@@ -63,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "api-rest-cocktail:build"
+            "browserTarget": "cocktail-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "api-rest-cocktail:build:production"
+              "browserTarget": "cocktail-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "api-rest-cocktail:build"
+            "browserTarget": "cocktail-app:build"
           }
         },
         "test": {
@@ -111,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "api-rest-cocktail:serve"
+            "devServerTarget": "cocktail-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "api-rest-cocktail:serve:production"
+              "devServerTarget": "cocktail-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "api-rest-cocktail"
+  "defaultProject": "cocktail-app"
 }
